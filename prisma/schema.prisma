@@ -12,17 +12,17 @@ datasource db {
 
 
 model User {
-  id String @id @default(uuid()) 
-  email String @unique
-  name String?
-  articles Article[]
-
+  id     Int     @id @default(autoincrement()) @map("id")
+  name   String
+  email  String
+  phone  Int
 }
+
 
 model Article {
   id String @id @default(uuid())
   title String
   body String?
-  author User @relation(fields: [authorId], references: [id])
   authorId String
 }
+
